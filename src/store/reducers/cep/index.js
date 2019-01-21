@@ -1,15 +1,16 @@
 import * as types from '../../../actions/types';
 
 const iniitalState = {
-    "cep": null,
-    "logradouro": null,
-    "complemento": null,
-    "bairro": null,
-    "localidade": null,
-    "uf": null,
-    "unidade": null,
-    "ibge": null,
-    "gia": null
+    cep: null,
+    logradouro: null,
+    complemento: null,
+    bairro: null,
+    localidade: null,
+    uf: null,
+    unidade: null,
+    ibge: null,
+    gia: null,
+    error: false
 }
 
 export default (state = iniitalState, action) => {
@@ -19,15 +20,22 @@ export default (state = iniitalState, action) => {
         case `${types.FIND_CEP}_FULFILLED`: {
             return {
                 ...state,
-                "cep": payload.cep,
-                "logradouro": payload.logradouro,
-                "complemento": payload.complemento,
-                "bairro": payload.bairro,
-                "localidade": payload.localidade,
-                "uf": payload.uf,
-                "unidade": payload.unidade,
-                "ibge": payload.ibge,
-                "gia": payload.gia
+                cep: payload.cep,
+                logradouro: payload.logradouro,
+                complemento: payload.complemento,
+                bairro: payload.bairro,
+                localidade: payload.localidade,
+                uf: payload.uf,
+                unidade: payload.unidade,
+                ibge: payload.ibge,
+                gia: payload.gia,
+                error: false
+            }
+        }
+        case `${types.FIND_CEP}_REJECTED`: {
+            return {
+                ...state,
+                error: true
             }
         }
         default: {

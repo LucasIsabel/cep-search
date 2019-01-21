@@ -7,12 +7,8 @@ class Service {
     }
 
     getDataFromCep = async (cep) => {
-        try {
-            const {data} = await this.axios.get(`${cep}/json`)
-            return data;
-        } catch (err) {
-            return err;
-        }
+        const {data} = await this.axios.get(`${cep}/json`)
+        return data;
     }
 
 }
